@@ -367,19 +367,18 @@ summary {
 
 
 <hr />
-<p>title: “My Rmd document” author: “Advika Battini” date: “27 January 2020” output: bookdown::html_document2 —</p>
+<p>title: “My Rmd document” author: “Advika Battini” bibliography: example.bib date: “28 January 2020” output: bookdown::html_document2 —</p>
 <p>Here is some inline code 2</p>
-<pre class="r"><code>library(dplyr)</code></pre>
-<pre><code>## 
-## Attaching package: 'dplyr'</code></pre>
-<pre><code>## The following objects are masked from 'package:stats':
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<pre class="r"><code>library(ggplot2)
-starwars %&gt;%
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✔ ggplot2 3.2.1     ✔ purrr   0.3.3
+## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
+## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
+## ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>starwars %&gt;%
   filter(species==&quot;Human&quot;) %&gt;%
   ggplot() +
   aes(x=height,y=mass)+
@@ -391,7 +390,7 @@ starwars %&gt;%
 A ggplot of starwars stuff
 </p>
 </div>
-<p>We can see Figure (fig:starwars_plot)…</p>
+<p>We can see Figure @ref(fig:starwars_plot)…</p>
 <pre class="r"><code>starwars %&gt;%
   filter(species==&quot;Human&quot;) %&gt;%
   select(name,height,mass,homeworld) %&gt;%
@@ -621,12 +620,17 @@ A ggplot of starwars stuff
 <td align="left">We can see in Table @</td>
 <td align="right">ref(tab:s</td>
 <td align="right">tarwars-</td>
-<td align="left">tbl)…</td>
+<td align="left">tbl) a subset of the data from the starwars dataset</td>
 </tr>
 </tbody>
 </table>
-<pre><code>{r, my-fig, fig.cap=&quot;My non-code figure&quot;}
-knitr::include_graphics(&quot;figures/my-image-file.png&quot;)</code></pre>
+<pre><code>{r my-fig}
+knitr::include_graphics(&quot;https://www.gannett-cdn.com/presto/2019/12/27/USAT/e79b0b30-cb0d-47d5-83a5-36a814107e8d-mandalorian-108-7_013d454d.jpeg?width=660&amp;height=275&amp;fit=crop&amp;format=pjpg&amp;auto=webp&quot;)</code></pre>
+<p>A stormtrooper image above @ref(fig:my-fig)</p>
+<p>Here is an article “Terminologies for reproducible research”. <span class="citation">[@clarkson2017human]</span>.</p>
+<div id="references-cited" class="section level2">
+<h2>References cited</h2>
+</div>
 
 
 
