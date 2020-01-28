@@ -1,12 +1,15 @@
+
 ___
-title: "My Rmd document"
-author: "Advika Battini"
+title: My Rmd document
+author: Advika Battini
 bibliography: example.bib
 date: "`r format(Sys.time(),'%d %B %Y')`"
-output: bookdown::html_document2
+output: 
+  bookdown::html_document2:
+    fig_caption: yes
 ---
-```{r}
-```
+
+
 Here is some inline code `r 1+1`
 
 ```{r, starwars_plot, fig.cap="A ggplot of starwars stuff"}
@@ -18,7 +21,7 @@ starwars %>%
   geom_point()
 ```
 
-We can see Figure \@ref(fig:starwars_plot)...
+We can see Figure \ref(fig:starwars_plot)...
 
 
 ```{r starwars-tbl}
@@ -27,13 +30,12 @@ starwars %>%
   select(name,height,mass,homeworld) %>%
   knitr::kable(caption="A knitr kable table of starwars data")
 ```
-We can see in Table \@ref(tab:starwars-tbl) a subset of the data from the starwars dataset
+We can see in Table \@ref(tab:starwars-tbl) a subset of the starwars dataset
 
-
-```
-{r my-fig}
+```{r my-fig, echo=FALSE, fig.cap="Star Strooper"}
 knitr::include_graphics("./myimage.jpg")
 ```
+
 A stormtrooper image above \@ref(fig:my-fig)
 
 
