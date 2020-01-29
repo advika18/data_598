@@ -1,5 +1,4 @@
-
-___
+---
 title: My Rmd document
 author: Advika Battini
 bibliography: example.bib
@@ -12,7 +11,7 @@ output:
 
 Here is some inline code `r 1+1`
 
-```{r, starwars_plot, fig.cap="A ggplot of starwars stuff"}
+```{r starwarsplot, fig.cap="A ggplot of starwars stuff"}
 library(tidyverse)
 starwars %>%
   filter(species=="Human") %>%
@@ -21,22 +20,22 @@ starwars %>%
   geom_point()
 ```
 
-We can see Figure \ref(fig:starwars_plot)...
+We can see Figure \@ref(fig:starwarsplot)...
 
 
-```{r starwars-tbl}
+```{r starwarstbl}
 starwars %>%
   filter(species=="Human") %>%
   select(name,height,mass,homeworld) %>%
   knitr::kable(caption="A knitr kable table of starwars data")
 ```
-We can see in Table \@ref(tab:starwars-tbl) a subset of the starwars dataset
+We can see in Table \@ref(tab:starwarstbl) a subset of the starwars dataset
 
 ```{r my-fig, echo=FALSE, fig.cap="Star Strooper"}
 knitr::include_graphics("./myimage.jpg")
 ```
 
-A stormtrooper image above \@ref(fig:my-fig)
+A stormtrooper image above in Figure: \@ref(fig:my-fig)
 
 
 Here is an article "Terminologies for reproducible research". [@clarkson2017human].
